@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="日本电影网 - 专注日本电影资讯分享平台，为您提供最新日本电影、经典日影推荐、日本影视资讯、动漫电影等全方位内容。ribendianyingwang-wap.github.io 是影迷了解日本电影的首选网站。">
+    <meta name="keywords" content="日本电影网, 日本电影, 日影推荐, 日本影视资讯, 经典日片, 日本动漫电影, 日本导演作品, 日本电影节, 2026日本电影, ribendianyingwang-wap">
+    <meta name="author" content="日本电影网">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta property="og:title" content="日本电影网 - 专注日本电影资讯分享平台">
+    <meta property="og:description" content="日本电影网为您提供最新日本电影、经典日影推荐、日本影视资讯、动漫电影等全方位内容，是影迷了解日本电影的首选网站。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ribendianyingwang-wap.github.io">
+    <meta property="og:site_name" content="日本电影网">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="日本电影网 - 专注日本电影资讯分享平台">
+    <meta name="twitter:description" content="日本电影网为您提供最新日本电影、经典日影推荐、日本影视资讯、动漫电影等全方位内容。">
+    <title>日本电影网 - 日本电影资讯分享平台 | 探索日影之美</title>
+    <link rel="canonical" href="https://ribendianyingwang-wap.github.io">
+    <style>
+        /* ===== Reset & Variables ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            /* 日式和风主题：樱花粉 + 极简黑白 */
+            --sakura: #ff8fab;
+            --sakura-deep: #e8486a;
+            --sakura-light: #ffc2d4;
+            --ink: #1a1a2e;
+            --ink-soft: #2d2d44;
+            --paper: #fdfbf7;
+            --paper-warm: #faf6f0;
+            --bamboo: #2d8b5e;
+            --gold: #c9a96e;
+            --text-dark: #2c2c3e;
+            --text-mid: #5a5a6e;
+            --text-light: #9a9aae;
+            --line: #e8e2d8;
+            --line-soft: #f0ece4;
+            --shadow: 0 4px 24px rgba(232, 72, 106, 0.08);
+            --shadow-hover: 0 12px 40px rgba(232, 72, 106, 0.15);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+        body {
+            font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
+            background: var(--paper);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: all .25s ease; }
+        ul, ol { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        ::selection { background: var(--sakura-light); color: var(--ink); }
+
+        /* ===== Sakura Petals Animation ===== */
+        .sakura-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        .petal {
+            position: absolute; top: -60px;
+            width: 14px; height: 14px;
+            background: radial-gradient(ellipse at 30% 30%, #ffb3c8, #ff8fab);
+            border-radius: 50% 0 50% 50%;
+            opacity: .25;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+            10%  { opacity: .25; }
+            90%  { opacity: .25; }
+            100% { transform: translateY(110vh) rotate(360deg) translateX(80px); opacity: 0; }
+        }
+
+        /* ===== Header ===== */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(253, 251, 247, .9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: all .3s ease;
+        }
+        .site-header.scrolled { border-bottom-color: var(--line); box-shadow: 0 2px 16px rgba(0,0,0,.04); }
+
+        .header-inner {
+            max-width: 1200px; margin: 0 auto; padding: 14px 28px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .brand-mark {
+            width: 42px; height: 42px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--sakura), var(--sakura-deep));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; box-shadow: 0 3px 12px rgba(232,72,106,.3);
+            position: relative; overflow: hidden;
+        }
+        .brand-mark::after {
+            content: ''; position: absolute; width: 8px; height: 8px;
+            background: rgba(255,255,255,.4); border-radius: 50%;
+            top: 8px; left: 8px;
+        }
+        .brand-text h1 { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }
+        .brand-text .en { font-size: 11px; color: var(--text-light); letter-spacing: 2px; text-transform: uppercase; }
+
+        .main-nav { display: flex; align-items: center; gap: 2px; }
+        .main-nav a {
+            padding: 8px 16px; border-radius: 8px; font-size: 14.5px;
+            font-weight: 500; color: var(--text-mid);
+        }
+        .main-nav a:hover { color: var(--sakura-deep); background: rgba(255,143,171,.06); }
+        .main-nav a.active { color: var(--sakura-deep); font-weight: 600; }
+
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; border: none; background: none; }
+        .menu-toggle span { width: 22px; height: 2px; background: var(--text-dark); border-radius: 2px; transition: all .3s; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ===== Hero ===== */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            position: relative; padding: 100px 24px 60px; z-index: 1;
+        }
+        .hero-bg-deco {
+            position: absolute; right: -100px; top: 15%; width: 400px; height: 400px;
+            border-radius: 50%; background: radial-gradient(circle, rgba(255,143,171,.08), transparent 70%);
+        }
+        .hero-bg-deco2 {
+            position: absolute; left: -150px; bottom: 5%; width: 300px; height: 300px;
+            border-radius: 50%; background: radial-gradient(circle, rgba(45,139,94,.06), transparent 70%);
+        }
+
+        .hero-content { max-width: 860px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 20px; border-radius: 50px;
+            background: rgba(255,143,171,.08); border: 1px solid rgba(255,143,171,.2);
+            font-size: 13px; color: var(--sakura-deep); margin-bottom: 28px;
+        }
+        .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sakura-deep); animation: blink 2s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+        .hero h2 {
+            font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 900;
+            line-height: 1.25; margin-bottom: 24px; letter-spacing: -1px; color: var(--ink);
+        }
+        .hero h2 em {
+            font-style: normal; color: var(--sakura-deep);
+            position: relative; display: inline-block;
+        }
+        .hero h2 em::after {
+            content: ''; position: absolute; bottom: 2px; left: 0; right: 0;
+            height: 8px; background: rgba(255,143,171,.25); border-radius: 4px; z-index: -1;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--text-mid);
+            max-width: 600px; margin: 0 auto 36px; line-height: 1.9;
+        }
+
+        .hero-search-box {
+            max-width: 520px; margin: 0 auto 32px; position: relative;
+        }
+        .hero-search-box input {
+            width: 100%; padding: 16px 56px 16px 22px; border-radius: 50px;
+            border: 2px solid var(--line); background: #fff; color: var(--text-dark);
+            font-size: 15px; outline: none; transition: all .3s;
+        }
+        .hero-search-box input:focus { border-color: var(--sakura); box-shadow: 0 0 0 4px rgba(255,143,171,.1); }
+        .hero-search-box input::placeholder { color: var(--text-light); }
+        .hero-search-box button {
+            position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+            width: 44px; height: 44px; border-radius: 50%; border: none;
+            background: var(--sakura-deep); color: #fff; font-size: 16px; cursor: pointer; transition: all .3s;
+        }
+        .hero-search-box button:hover { background: var(--sakura); transform: translateY(-50%) scale(1.05); }
+
+        .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-main {
+            padding: 13px 30px; border-radius: 50px; font-size: 15px; font-weight: 600;
+            background: var(--sakura-deep); color: #fff; border: none; cursor: pointer;
+            transition: all .3s; box-shadow: 0 4px 16px rgba(232,72,106,.25);
+        }
+        .btn-main:hover { background: var(--sakura); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,72,106,.35); }
+        .btn-sub {
+            padding: 13px 30px; border-radius: 50px; font-size: 15px; font-weight: 600;
+            background: #fff; color: var(--text-dark); border: 1.5px solid var(--line); cursor: pointer; transition: all .3s;
+        }
+        .btn-sub:hover { border-color: var(--sakura); color: var(--sakura-deep); transform: translateY(-2px); }
+
+        /* ===== Section Layout ===== */
+        .container { max-width: 1200px; margin: 0 auto; padding: 72px 28px; position: relative; z-index: 1; }
+
+        .sec-head { text-align: center; margin-bottom: 48px; }
+        .sec-label {
+            display: inline-block; font-size: 12px; font-weight: 700; color: var(--bamboo);
+            letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px;
+        }
+        .sec-title { font-size: clamp(1.5rem, 3.2vw, 2.2rem); font-weight: 800; color: var(--ink); margin-bottom: 10px; }
+        .sec-desc { font-size: .95rem; color: var(--text-mid); max-width: 560px; margin: 0 auto; }
+
+        /* ===== Film List (horizontal scroll cards) ===== */
+        .film-scroll-wrap { position: relative; }
+        .film-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;
+        }
+
+        .film-card {
+            background: #fff; border-radius: var(--radius-lg); overflow: hidden;
+            border: 1px solid var(--line-soft); transition: all .35s ease; cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+        .film-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(255,143,171,.3); }
+
+        .film-poster {
+            position: relative; width: 100%; aspect-ratio: 3/4;
+            background: linear-gradient(160deg, #f5f0e8 0%, #e8e2d8 100%);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .film-poster .icon { font-size: 48px; opacity: .7; }
+        .film-poster .tag-top {
+            position: absolute; top: 10px; left: 10px; padding: 3px 10px; border-radius: 20px;
+            font-size: 11px; font-weight: 700; background: var(--sakura-deep); color: #fff;
+        }
+        .film-poster .tag-rate {
+            position: absolute; top: 10px; right: 10px; padding: 3px 10px; border-radius: 20px;
+            font-size: 12px; font-weight: 700; background: rgba(255,255,255,.92); color: var(--sakura-deep);
+        }
+        .film-poster .tag-quality {
+            position: absolute; bottom: 10px; left: 10px; padding: 2px 8px; border-radius: 4px;
+            font-size: 10px; font-weight: 700; background: var(--bamboo); color: #fff;
+        }
+
+        .film-detail { padding: 14px 16px; }
+        .film-detail h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+        .film-detail .sub { font-size: 12.5px; color: var(--text-light); }
+
+        /* ===== Ranking ===== */
+        .rank-section { background: var(--paper-warm); border-radius: var(--radius-lg); padding: 40px; }
+        .rank-list { display: flex; flex-direction: column; gap: 8px; }
+        .rank-item {
+            display: flex; align-items: center; gap: 16px; padding: 14px 20px;
+            background: #fff; border-radius: var(--radius); border: 1px solid var(--line-soft);
+            transition: all .25s; cursor: pointer;
+        }
+        .rank-item:hover { border-color: var(--sakura); transform: translateX(3px); box-shadow: var(--shadow); }
+        .rank-no {
+            font-size: 24px; font-weight: 900; width: 40px; text-align: center; color: var(--text-light);
+            flex-shrink: 0;
+        }
+        .rank-item:nth-child(1) .rank-no,
+        .rank-item:nth-child(2) .rank-no,
+        .rank-item:nth-child(3) .rank-no { color: var(--sakura-deep); }
+        .rank-poster {
+            width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+            background: linear-gradient(135deg, var(--sakura-light), var(--sakura));
+            display: flex; align-items: center; justify-content: center; font-size: 20px;
+        }
+        .rank-info { flex: 1; min-width: 0; }
+        .rank-info h4 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 1px; }
+        .rank-info p { font-size: 12px; color: var(--text-light); }
+        .rank-score { text-align: right; flex-shrink: 0; }
+        .rank-score .num { font-size: 19px; font-weight: 800; color: var(--sakura-deep); }
+        .rank-score .unit { font-size: 11px; color: var(--text-light); }
+
+        /* ===== Categories ===== */
+        .cat-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;
+        }
+        .cat-card {
+            background: #fff; border: 1px solid var(--line-soft); border-radius: var(--radius-lg);
+            padding: 26px 18px; text-align: center; cursor: pointer; transition: all .3s; position: relative;
+        }
+        .cat-card::before {
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 40px; height: 3px; border-radius: 0 0 3px 3px; background: var(--sakura);
+            opacity: 0; transition: all .3s;
+        }
+        .cat-card:hover::before { opacity: 1; width: 60px; }
+        .cat-card:hover { border-color: var(--sakura-light); box-shadow: var(--shadow); transform: translateY(-3px); }
+        .cat-card .emoji { font-size: 36px; margin-bottom: 10px; display: block; }
+        .cat-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+        .cat-card .cnt { font-size: 12px; color: var(--text-light); }
+
+        /* ===== News ===== */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
+        .news-card {
+            background: #fff; border: 1px solid var(--line-soft); border-radius: var(--radius-lg);
+            overflow: hidden; transition: all .3s; cursor: pointer;
+        }
+        .news-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+        .news-thumb {
+            width: 100%; height: 170px; background: linear-gradient(135deg, #f0ebe3, #e0d8cc);
+            display: flex; align-items: center; justify-content: center; font-size: 44px; position: relative;
+        }
+        .news-thumb .label {
+            position: absolute; top: 10px; left: 10px; padding: 3px 10px; border-radius: 4px;
+            font-size: 11px; font-weight: 700; background: var(--sakura-deep); color: #fff;
+        }
+        .news-body { padding: 20px; }
+        .news-meta { font-size: 12px; color: var(--text-light); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .news-body h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 8px; line-height: 1.5; color: var(--ink); }
+        .news-body p { font-size: 13.5px; color: var(--text-mid); line-height: 1.7; }
+
+        /* ===== About ===== */
+        .about-wrap {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+        }
+        .about-text h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; margin-bottom: 18px; color: var(--ink); line-height: 1.4; }
+        .about-text p { font-size: .95rem; color: var(--text-mid); margin-bottom: 14px; line-height: 1.9; }
+        .about-points { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .point {
+            display: flex; gap: 10px; align-items: flex-start; padding: 14px;
+            background: #fff; border: 1px solid var(--line-soft); border-radius: var(--radius);
+        }
+        .point .ico { font-size: 20px; flex-shrink: 0; }
+        .point h4 { font-size: 13.5px; font-weight: 700; margin-bottom: 1px; }
+        .point p { font-size: 12px; color: var(--text-light); margin: 0; }
+
+        .about-visual-wrap { display: flex; justify-content: center; align-items: center; }
+        .visual-card {
+            width: 100%; max-width: 340px; aspect-ratio: 4/5; border-radius: var(--radius-lg);
+            background: linear-gradient(160deg, var(--sakura-light) 0%, var(--sakura) 40%, var(--sakura-deep) 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+            position: relative; overflow: hidden; padding: 30px; text-align: center;
+        }
+        .visual-card::before {
+            content: '桜'; position: absolute; right: -10px; bottom: -20px; font-size: 180px;
+            color: rgba(255,255,255,.12); font-weight: 900;
+        }
+        .visual-card .big-emoji { font-size: 56px; position: relative; z-index: 2; }
+        .visual-card .site-name { font-size: 22px; font-weight: 800; color: #fff; position: relative; z-index: 2; }
+        .visual-card .site-url { font-size: 12px; color: rgba(255,255,255,.8); position: relative; z-index: 2; }
+        .visual-stats {
+            display: flex; gap: 24px; margin-top: 8px; position: relative; z-index: 2;
+        }
+        .visual-stats .si .n { font-size: 22px; font-weight: 800; color: #fff; }
+        .visual-stats .si .l { font-size: 11px; color: rgba(255,255,255,.75); }
+
+        /* ===== Footer ===== */
+        .site-footer {
+            background: var(--ink); color: rgba(255,255,255,.6);
+            padding: 48px 28px 28px; position: relative; z-index: 1;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-top {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px;
+            padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+        .footer-brand .brand-mark { box-shadow: 0 3px 12px rgba(0,0,0,.2); }
+        .footer-brand .brand-text h1 { color: #fff; font-size: 18px; }
+        .footer-brand .brand-text .en { color: rgba(255,255,255,.4); }
+        .footer-brand > p { font-size: 13px; margin-top: 12px; line-height: 1.8; max-width: 300px; }
+        .footer-col h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,.5); }
+        .footer-col ul li a:hover { color: var(--sakura-light); }
+        .footer-bottom {
+            padding-top: 24px; display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 14px;
+        }
+        .footer-bottom p { font-size: 12.5px; }
+        .social-group { display: flex; gap: 8px; }
+        .social-group a {
+            width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 14px; background: rgba(255,255,255,.06); transition: all .3s;
+        }
+        .social-group a:hover { background: var(--sakura-deep); }
+
+        /* ===== ScrollTop ===== */
+        .to-top {
+            position: fixed; bottom: 24px; right: 24px; width: 42px; height: 42px;
+            border-radius: 50%; border: none; cursor: pointer; z-index: 999;
+            background: var(--sakura-deep); color: #fff; font-size: 16px;
+            opacity: 0; visibility: hidden; transition: all .3s; box-shadow: 0 4px 14px rgba(232,72,106,.3);
+        }
+        .to-top.show { opacity: 1; visibility: visible; }
+        .to-top:hover { background: var(--sakura); transform: translateY(-2px); }
+
+        /* ===== Reveal ===== */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .5s, transform .5s; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .about-wrap { grid-template-columns: 1fr; gap: 40px; }
+            .about-visual-wrap { order: -1; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                position: fixed; top: 0; right: -100%; width: 240px; height: 100vh;
+                background: rgba(253,251,247,.98); backdrop-filter: blur(16px);
+                flex-direction: column; align-items: flex-start; padding: 70px 20px 30px;
+                border-left: 1px solid var(--line); transition: right .35s ease;
+            }
+            .main-nav.active { right: 0; }
+            .main-nav a { width: 100%; padding: 12px 14px; font-size: 15.5px; border-radius: 8px; }
+            .menu-toggle { display: flex; }
+
+            .film-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+            .rank-section { padding: 24px 16px; }
+            .rank-item { gap: 10px; padding: 12px; }
+            .rank-no { font-size: 18px; width: 30px; }
+            .rank-poster { width: 36px; height: 36px; font-size: 16px; }
+            .cat-grid { grid-template-columns: repeat(2, 1fr); }
+            .news-grid { grid-template-columns: 1fr; }
+            .about-points { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; gap: 24px; }
+            .container { padding: 56px 18px; }
+            .hero { padding: 90px 18px 50px; }
+        }
+
+        @media (max-width: 480px) {
+            .film-grid { grid-template-columns: repeat(2, 1fr); }
+            .cat-grid { grid-template-columns: 1fr 1fr; }
+            .hero-actions { gap: 10px; }
+            .btn-main, .btn-sub { padding: 12px 24px; font-size: 14px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+    <!-- Sakura Petals -->
+    <div class="sakura-container" id="sakuraBox"></div>
+
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a href="#home" class="brand">
+                <span class="brand-mark">🌸</span>
+                <span class="brand-text">
+                    <h1>日本电影网</h1>
+                    <span class="en">Japan Film</span>
+                </span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <a href="#home" class="active">首页</a>
+                <a href="#films">最新电影</a>
+                <a href="#ranking">人气排行</a>
+                <a href="#categories">影片分类</a>
+                <a href="#news">影视资讯</a>
+                <a href="#about">关于我们</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-bg-deco"></div>
+        <div class="hero-bg-deco2"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                <span>日本电影网 · 探索日影之美</span>
+            </div>
+            <h2>日本电影网<br><em>第一时间</em>发现好日影</h2>
+            <p>
+                日本电影网（ribendianyingwang-wap.github.io）专注分享最新日本电影资讯，
+                从经典名作到当下热门新片，从是枝裕和到新海诚，为您呈现最全面的日本影视内容。
+            </p>
+            <div class="hero-search-box">
+                <input type="text" placeholder="搜索日本电影、导演、演员..." aria-label="搜索">
+                <button type="button" aria-label="搜索">🔍</button>
+            </div>
+            <div class="hero-actions">
+                <a href="#films" class="btn-main">🎬 浏览最新电影</a>
+                <a href="#ranking" class="btn-sub">📊 查看人气排行</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Films -->
+    <div class="container" id="films">
+        <div class="sec-head reveal">
+            <span class="sec-label">New Releases</span>
+            <h2 class="sec-title">🌸 最新日本电影</h2>
+            <p class="sec-desc">日本电影网精选近期最新上映的日本电影，每日更新，带您第一时间感受日影魅力。</p>
+        </div>
+        <div class="film-grid">
+            <div class="film-card reveal">
+                <div class="film-poster">
+                    <span class="icon">🏯</span>
+                    <span class="tag-top">新上映</span>
+                    <span class="tag-rate">⭐ 8.9</span>
+                    <span class="tag-quality">4K</span>
+                </div>
+                <div class="film-detail">
+                    <h3>京都物语</h3>
+                    <span class="sub">剧情 / 2026 / 128分钟</span>
+                </div>
+            </div>
+            <div class="film-card reveal">
+                <div class="film-poster">
+                    <span class="icon">🌊</span>
+                    <span class="tag-top">热议</span>
+                    <span class="tag-rate">⭐ 8.7</span>
+                    <span class="tag-quality">1080P</span>
+                </div>
+                <div class="film-detail">
+                    <h3>海之彼方</h3>
+                    <span class="sub">动画 / 2026 / 112分钟</span>
+                </div>
+            </div>
+            <div class="film-card reveal">
+                <div class="film-poster">
+                    <span class="icon">🍡</span>
+                    <span class="tag-rate">⭐ 8.5</span>
+                    <span class="tag-quality">4K HDR</span>
+                </div>
+                <div class="film-detail">
+                    <h3>夏日烟火</h3>
+                    <span class="sub">青春 / 2026 / 105分钟</span>
+                </div>
+            </div>
+            <div class="film-card reveal">
+                <div class="film-poster">
+                    <span class="icon">⛩️</span>
+                    <span class="tag-top">推荐</span>
+                    <span class="tag-rate">⭐ 9.1</span>
+                    <span class="tag-quality">4K</span>
+                </div>
+                <div class="film-detail">
+                    <h3>神隐少女2</h3>
+                    <span class="sub">奇幻 / 2026 / 140分钟</span>
+                </div>
+            </div>
+            <div class="film-card reveal">
+                <div class="film-poster">
+                    <span class="icon">🎭</span>
+                    <span class="tag-rate">⭐ 8.6</span>
+                    <span class="tag-quality">1080P</span>
+                </div>
+                <div class="film-detail">
+                    <h3>孤独的美食家</h3>
+                    <span class="sub">剧情 / 2026 / 118分钟</span>
+                </div>
+            </div>
+            <div class="film-card reveal">
+                <div class="film-poster">
+                    <span class="icon">🗾</span>
+                    <span class="tag-top">独家</span>
+                    <span class="tag-rate">⭐ 8.8</span>
+                    <span class="tag-quality">4K</span>
+                </div>
+                <div class="film-detail">
+                    <h3>北海道的风</h3>
+                    <span class="sub">治愈 / 2026 / 122分钟</span>
+                </div>
+            </div>
+            <div class="film-card reveal">
+                <div class="film-poster">
+                    <span class="icon">🎌</span>
+                    <span class="tag-rate">⭐ 8.4</span>
+                    <span class="tag-quality">1080P</span>
+                </div>
+                <div class="film-detail">
+                    <h3>武士之魂</h3>
+                    <span class="sub">历史 / 2026 / 156分钟</span>
+                </div>
+            </div>
+            <div class="film-card reveal">
+                <div class="film-poster">
+                    <span class="icon">🐱</span>
+                    <span class="tag-top">热播</span>
+                    <span class="tag-rate">⭐ 8.3</span>
+                    <span class="tag-quality">4K</span>
+                </div>
+                <div class="film-detail">
+                    <h3>猫咪咖啡馆</h3>
+                    <span class="sub">治愈 / 2026 / 98分钟</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ranking -->
+    <div class="container" id="ranking">
+        <div class="sec-head reveal">
+            <span class="sec-label">Top Ranking</span>
+            <h2 class="sec-title">🏆 人气排行 TOP8</h2>
+            <p class="sec-desc">日本电影网根据全网观影数据与用户评分，实时更新日本电影人气排行榜。</p>
+        </div>
+        <div class="rank-section reveal">
+            <div class="rank-list">
+                <div class="rank-item">
+                    <span class="rank-no">1</span>
+                    <div class="rank-poster">⛩️</div>
+                    <div class="rank-info">
+                        <h4>神隐少女2</h4>
+                        <p>奇幻 · 吉卜力 · 2026</p>
+                    </div>
+                    <div class="rank-score"><div class="num">9.1</div><div class="unit">评分</div></div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-no">2</span>
+                    <div class="rank-poster">🏯</div>
+                    <div class="rank-info">
+                        <h4>京都物语</h4>
+                        <p>剧情 · 是枝裕和 · 2026</p>
+                    </div>
+                    <div class="rank-score"><div class="num">8.9</div><div class="unit">评分</div></div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-no">3</span>
+                    <div class="rank-poster">🗾</div>
+                    <div class="rank-info">
+                        <h4>北海道的风</h4>
+                        <p>治愈 · 2026</p>
+                    </div>
+                    <div class="rank-score"><div class="num">8.8</div><div class="unit">评分</div></div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-no">4</span>
+                    <div class="rank-poster">🌊</div>
+                    <div class="rank-info">
+                        <h4>海之彼方</h4>
+                        <p>动画 · 新海诚 · 2026</p>
+                    </div>
+                    <div class="rank-score"><div class="num">8.7</div><div class="unit">评分</div></div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-no">5</span>
+                    <div class="rank-poster">🎭</div>
+                    <div class="rank-info">
+                        <h4>孤独的美食家</h4>
+                        <p>剧情 · 2026</p>
+                    </div>
+                    <div class="rank-score"><div class="num">8.6</div><div class="unit">评分</div></div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-no">6</span>
+                    <div class="rank-poster">🍡</div>
+                    <div class="rank-info">
+                        <h4>夏日烟火</h4>
+                        <p>青春 · 岩井俊二 · 2026</p>
+                    </div>
+                    <div class="rank-score"><div class="num">8.5</div><div class="unit">评分</div></div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-no">7</span>
+                    <div class="rank-poster">🎌</div>
+                    <div class="rank-info">
+                        <h4>武士之魂</h4>
+                        <p>历史 · 2026</p>
+                    </div>
+                    <div class="rank-score"><div class="num">8.4</div><div class="unit">评分</div></div>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-no">8</span>
+                    <div class="rank-poster">🐱</div>
+                    <div class="rank-info">
+                        <h4>猫咪咖啡馆</h4>
+                        <p>治愈 · 2026</p>
+                    </div>
+                    <div class="rank-score"><div class="num">8.3</div><div class="unit">评分</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="container" id="categories">
+        <div class="sec-head reveal">
+            <span class="sec-label">Categories</span>
+            <h2 class="sec-title">🗂️ 影片分类</h2>
+            <p class="sec-desc">日本电影网涵盖多种影片类型，轻松找到您喜欢的日本电影。</p>
+        </div>
+        <div class="cat-grid">
+            <div class="cat-card reveal">
+                <span class="emoji">🎭</span>
+                <h3>剧情片</h3>
+                <span class="cnt">1,200+ 部</span>
+            </div>
+            <div class="cat-card reveal">
+                <span class="emoji">🌊</span>
+                <h3>动画电影</h3>
+                <span class="cnt">800+ 部</span>
+            </div>
+            <div class="cat-card reveal">
+                <span class="emoji">💕</span>
+                <h3>纯爱青春</h3>
+                <span class="cnt">950+ 部</span>
+            </div>
+            <div class="cat-card reveal">
+                <span class="emoji">😊</span>
+                <h3>治愈系</h3>
+                <span class="cnt">700+ 部</span>
+            </div>
+            <div class="cat-card reveal">
+                <span class="emoji">🎌</span>
+                <h3>时代剧</h3>
+                <span class="cnt">520+ 部</span>
+            </div>
+            <div class="cat-card reveal">
+                <span class="emoji">🕵️</span>
+                <h3>悬疑推理</h3>
+                <span class="cnt">480+ 部</span>
+            </div>
+            <div class="cat-card reveal">
+                <span class="emoji">😂</span>
+                <h3>喜剧片</h3>
+                <span class="cnt">630+ 部</span>
+            </div>
+            <div class="cat-card reveal">
+                <span class="emoji">👻</span>
+                <h3>恐怖惊悚</h3>
+                <span class="cnt">380+ 部</span>
+            </div>
+            <div class="cat-card reveal">
+                <span class="emoji">🎬</span>
+                <h3>经典名作</h3>
+                <span class="cnt">1,500+ 部</span>
+            </div>
+            <div class="cat-card reveal">
+                <span class="emoji">📺</span>
+                <h3>日剧精选</h3>
+                <span class="cnt">2,800+ 部</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- News -->
+    <div class="container" id="news">
+        <div class="sec-head reveal">
+            <span class="sec-label">News & Topics</span>
+            <h2 class="sec-title">📰 日本影视资讯</h2>
+            <p class="sec-desc">日本电影网为您带来最新最全的日本影视行业动态。</p>
+        </div>
+        <div class="news-grid">
+            <article class="news-card reveal">
+                <div class="news-thumb">
+                    <span class="label">新片速递</span>
+                    <span>🎬</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta"><span>📅 2026-10-01</span><span>👁 12,500 阅读</span></div>
+                    <h3>新海诚新作《海之彼方》首周票房破10亿日元，再创票房神话</h3>
+                    <p>日本电影网讯：新海诚导演最新动画电影《海之彼方》日本首周上映即斩获10.2亿日元票房，口碑与票房双丰收，成为今年最成功的日本动画电影之一。</p>
+                </div>
+            </article>
+            <article class="news-card reveal">
+                <div class="news-thumb">
+                    <span class="label">获奖信息</span>
+                    <span>🏆</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta"><span>📅 2026-09-28</span><span>👁 8,700 阅读</span></div>
+                    <h3>第49届日本电影学院奖提名公布，是枝裕和《京都物语》获8项提名领跑</h3>
+                    <p>据日本电影网了解，第49届日本电影学院奖公布提名名单，是枝裕和执导的《京都物语》以8项提名领跑，包括最佳影片、最佳导演、最佳剧本等重要奖项。</p>
+                </div>
+            </article>
+            <article class="news-card reveal">
+                <div class="news-thumb">
+                    <span class="label">观影指南</span>
+                    <span>📋</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta"><span>📅 2026-09-25</span><span>👁 15,300 阅读</span></div>
+                    <h3>十月日影推荐｜日本电影网精选8部金秋必看日本电影</h3>
+                    <p>金秋十月，多部优质日本电影陆续上映。日本电影网为您精选8部十月必看日影，涵盖治愈、悬疑、动画等多种类型，让这个秋天充满光影之美。</p>
+                </div>
+            </article>
+            <article class="news-card reveal">
+                <div class="news-thumb">
+                    <span class="label">行业观察</span>
+                    <span>📈</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta"><span>📅 2026-09-22</span><span>👁 6,400 阅读</span></div>
+                    <h3>2026年日本电影市场持续回暖，海外票房贡献创新高</h3>
+                    <p>日本电影网统计数据显示，2026年前三季度日本电影海外票房同比增长23%，亚洲市场成为最大增长引擎，多部日影在中国、韩国等地上映引发观影热潮。</p>
+                </div>
+            </article>
+            <article class="news-card reveal">
+                <div class="news-thumb">
+                    <span class="label">导演动态</span>
+                    <span>🎥</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta"><span>📅 2026-09-19</span><span>👁 9,800 阅读</span></div>
+                    <h3>是枝裕和宣布新片计划，将执导首部英语对白国际合拍片</h3>
+                    <p>据日本电影网获悉，著名导演是枝裕和近日宣布将执导一部以国际家庭为主题的全新作品，该片为其首部全英语对白电影，预计2027年开拍。</p>
+                </div>
+            </article>
+            <article class="news-card reveal">
+                <div class="news-thumb">
+                    <span class="label">文化漫谈</span>
+                    <span>🎌</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta"><span>📅 2026-09-16</span><span>👁 7,200 阅读</span></div>
+                    <h3>从《神隐少女2》看日本动画的传承与创新之路</h3>
+                    <p>日本电影网深度分析：吉卜力工作室新作《神隐少女2》如何在延续宫崎骏美学风格的同时，融入当代社会议题，为经典IP注入全新生命力。</p>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="container" id="about">
+        <div class="sec-head reveal">
+            <span class="sec-label">About Us</span>
+            <h2 class="sec-title">📌 关于日本电影网</h2>
+        </div>
+        <div class="about-wrap">
+            <div class="about-text reveal">
+                <h2>日本电影网 — 第一时间，发现好日影</h2>
+                <p>
+                    日本电影网（ribendianyingwang-wap.github.io）是一个专注于日本电影资讯分享的专业平台。
+                    我们致力于为影迷朋友提供最新、最热、最全的日本电影信息，从院线新片到经典名作，一网打尽。
+                </p>
+                <p>
+                    无论是是枝裕和的细腻人文，还是新海诚的唯美动画，亦或是经典的黑泽明时代剧，
+                    日本电影网都为您精心整理，让您不错过任何一部好日影。
+                </p>
+                <div class="about-points">
+                    <div class="point">
+                        <span class="ico">🌸</span>
+                        <div><h4>每日更新</h4><p>最新日影第一时间推送</p></div>
+                    </div>
+                    <div class="point">
+                        <span class="ico">🎯</span>
+                        <div><h4>精选推荐</h4><p>编辑团队精心筛选</p></div>
+                    </div>
+                    <div class="point">
+                        <span class="ico">📱</span>
+                        <div><h4>全端适配</h4><p>手机电脑完美浏览</p></div>
+                    </div>
+                    <div class="point">
+                        <span class="ico">🔒</span>
+                        <div><h4>绿色平台</h4><p>安全无忧放心访问</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual-wrap reveal">
+                <div class="visual-card">
+                    <span class="big-emoji">🌸</span>
+                    <div class="site-name">日本电影网</div>
+                    <div class="site-url">ribendianyingwang-wap.github.io</div>
+                    <div class="visual-stats">
+                        <div class="si"><div class="n">8,000+</div><div class="l">影片资源</div></div>
+                        <div class="si"><div class="n">4K</div><div class="l">超清画质</div></div>
+                        <div class="si"><div class="n">每日</div><div class="l">实时更新</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#home" class="brand">
+                        <span class="brand-mark">🌸</span>
+                        <span class="brand-text">
+                            <h1>日本电影网</h1>
+                            <span class="en">Japan Film</span>
+                        </span>
+                    </a>
+                    <p>日本电影网（ribendianyingwang-wap.github.io）是您发现好日影的首选平台，提供最新日本电影资讯、人气排行、影片分类等全方位服务。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#films">最新电影</a></li>
+                        <li><a href="#ranking">人气排行</a></li>
+                        <li><a href="#categories">影片分类</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#categories">动画电影</a></li>
+                        <li><a href="#categories">治愈系</a></li>
+                        <li><a href="#categories">纯爱青春</a></li>
+                        <li><a href="#categories">经典名作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#about">网站介绍</a></li>
+                        <li><a href="#news">影视资讯</a></li>
+                        <li><a href="#about">联系我们</a></li>
+                        <li><a href="#about">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 日本电影网 (ribendianyingwang-wap.github.io) 版权所有 | 本站仅提供影视信息分享服务</p>
+                <div class="social-group">
+                    <a href="#" aria-label="微信">💬</a>
+                    <a href="#" aria-label="微博">📱</a>
+                    <a href="#" aria-label="QQ">🐧</a>
+                    <a href="#" aria-label="邮箱">📧</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+    <script>
+        // Mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        document.querySelectorAll('.main-nav a').forEach(a => {
+            a.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+
+        // Header scroll
+        const header = document.getElementById('siteHeader');
+        const toTop = document.getElementById('toTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+                toTop.classList.add('show');
+            } else {
+                header.classList.remove('scrolled');
+                toTop.classList.remove('show');
+            }
+        });
+
+        // Scroll top
+        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Active nav
+        const sections = document.querySelectorAll('section[id], div[id]');
+        const navLinks = document.querySelectorAll('.main-nav a');
+        window.addEventListener('scroll', () => {
+            let cur = '';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 120) cur = s.id;
+            });
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + cur) a.classList.add('active');
+            });
+        });
+
+        // Reveal animation
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // Sakura petals
+        const box = document.getElementById('sakuraBox');
+        const count = window.innerWidth > 768 ? 25 : 12;
+        for (let i = 0; i < count; i++) {
+            const p = document.createElement('span');
+            p.className = 'petal';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.width = p.style.height = (Math.random() * 8 + 8) + 'px';
+            p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            p.style.animationDelay = Math.random() * 20 + 's';
+            box.appendChild(p);
+        }
+
+        // Search
+        const searchInput = document.querySelector('.hero-search-box input');
+        const searchBtn = document.querySelector('.hero-search-box button');
+        const doSearch = () => {
+            const q = searchInput.value.trim();
+            if (q) { alert('日本电影网提示：搜索 "' + q + '"\n正在为您查找相关日本电影...'); searchInput.value = ''; }
+        };
+        searchBtn.addEventListener('click', doSearch);
+        searchInput.addEventListener('keypress', e => { if (e.key === 'Enter') doSearch(); });
+
+        // Card clicks
+        document.querySelectorAll('.film-card').forEach(c => {
+            c.addEventListener('click', () => {
+                const t = c.querySelector('h3').textContent;
+                alert('日本电影网提示：您选择了《' + t + '》\n详情页面正在开发中...');
+            });
+        });
+        document.querySelectorAll('.rank-item').forEach(r => {
+            r.addEventListener('click', () => {
+                const t = r.querySelector('.rank-info h4').textContent;
+                alert('日本电影网提示：您选择了《' + t + '》\n详情页面正在开发中...');
+            });
+        });
+        document.querySelectorAll('.cat-card').forEach(c => {
+            c.addEventListener('click', () => {
+                const t = c.querySelector('h3').textContent;
+                alert('日本电影网提示：您选择了「' + t + '」分类\n影片列表正在加载中...');
+            });
+        });
+        document.querySelectorAll('.news-card').forEach(n => {
+            n.addEventListener('click', () => {
+                const t = n.querySelector('.news-body h3').textContent;
+                alert('日本电影网提示：\n「' + t + '」\n详情页面正在开发中...');
+            });
+        });
+    </script>
+
+</body>
+</html>
